@@ -19,8 +19,6 @@ RUN wget -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/11
     && unzip /tmp/chromedriver.zip -d /usr/local/bin/ \
     && rm /tmp/chromedriver.zip
 
-RUN apt-get update && apt-get install -y xvfb
-
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
@@ -31,5 +29,4 @@ ENV PYTHONPATH="/app"
 
 ENV DISPLAY=:99
 
-# Запуск Xvfb перед запуском тестов
 CMD ["sh", "-c", "Xvfb :99 -screen 0 1920x1080x16 & pytest"]
