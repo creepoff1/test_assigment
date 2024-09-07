@@ -29,7 +29,8 @@ def test_data():
         "password": "Vfcnth4321Cktqd!",
         "category": "Электроника",
         "subcategory": "Планшеты",
-        "subsubcategory": "Digma"
+        "subsubcategory": "Digma",
+        "product_name": "Планшет Digma iDx10 8Gb"
     }
 
 @pytest.fixture(autouse=True)
@@ -49,7 +50,7 @@ def login(driver, test_data):
     email = test_data["email"]
     password = test_data["password"]
 
-    main_page.click_icon()
+    main_page.click_icon_lk()
     main_page.click_login_link()
     main_page.enter_email(email)
     main_page.enter_password(password)

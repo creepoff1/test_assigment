@@ -1,3 +1,5 @@
+import pytest
+
 from BaseClass import BaseTest
 from tests.PageObject.contacts_page import ContactsPage
 from tests.PageObject.main_page import MainPage
@@ -9,5 +11,6 @@ class TestContacts(BaseTest):
         title = "Контакты"
         main_page.click_contacts_link()
         contacts_page = ContactsPage(driver)
-        assert title == contacts_page.check_presence_of_title_on_page(title)
+        pytest.assume(title == contacts_page.check_presence_of_title_on_page(title),
+                      f"\nExpected title: {title}\nBut got: {contacts_page.check_presence_of_title_on_page(title)}")
         contacts_page.click_to_back_to_main()

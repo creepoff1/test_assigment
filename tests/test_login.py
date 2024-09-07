@@ -1,3 +1,5 @@
+import pytest
+
 from BaseClass import BaseTest
 from tests.PageObject.main_page import MainPage
 
@@ -7,4 +9,4 @@ class TestLogin(BaseTest):
         main_page = MainPage(driver)
         username = test_data["username"]
         logged_in_username = main_page.get_logged_in_username(username)
-        assert logged_in_username == username, f"Expected username: {username}, but got: {logged_in_username}"
+        assert logged_in_username == username, pytest.fail(f"\nExpected: {username}\nBut got: {logged_in_username}")

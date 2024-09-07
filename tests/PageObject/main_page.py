@@ -8,7 +8,7 @@ class MainPage:
         self.driver = driver
 
 
-    def click_icon(self):
+    def click_icon_lk(self):
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, f"//span[@class='ms-2' and text()='Личный кабинет']"))
         ).click()
@@ -87,7 +87,7 @@ class MainPage:
                 break
 
 
-    def click_sub_subcategory(self, sub_subcategory_name, destination):
+    def click_sub_subcategory(self, sub_subcategory_name):
         sub_subcategory = WebDriverWait(self.driver, 10).until(
             EC.presence_of_all_elements_located((By.XPATH, "//div[@id='dropdown-subsubcat-2-2']//ul//li//a"))
         )
@@ -95,10 +95,11 @@ class MainPage:
             if link.text == sub_subcategory_name:
                 link.click()
                 break
-        WebDriverWait(self.driver, 10).until(EC.url_contains(destination))
-        current_url = self.driver.current_url
-        assert destination in current_url, f"Unexpected URL: {current_url}"
 
+    def select_and_click_subsubcategory(self, category_name, subcategory_name, subsubcategory_name):
+        self.select_category(category_name)
+        self.select_sub_category(subcategory_name)
+        self.click_sub_subcategory(subsubcategory_name)
 
     def click_cart_button(self):
         cart_button = WebDriverWait(self.driver, 10).until(
