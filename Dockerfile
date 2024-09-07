@@ -29,4 +29,4 @@ ENV PYTHONPATH="/app"
 
 ENV DISPLAY=:99
 
-CMD ["sh", "-c", "Xvfb :99 -screen 0 1920x1080x16 & pytest"]
+CMD ["sh", "-c", "Xvfb :99 -screen 0 1920x1080x16 & pytest -v --tb=short"]
