@@ -5,8 +5,10 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class ProductPage:
+
     def __init__(self, driver):
         self.driver = driver
+
 
     def find_product_by_title(self, product_name):
         # Найти все карточки товаров
@@ -22,6 +24,7 @@ class ProductPage:
                 continue
         return None
 
+
     def click_add_to_cart_button(self, product_name):
         product_card = self.find_product_by_title(product_name)
 
@@ -34,6 +37,7 @@ class ProductPage:
                 actions.move_to_element(add_to_cart_button).click().perform()
             except Exception as e:
                 print(f"Failed to find or click 'В корзину' button: {e}")
+
 
     def click_cart_button(self):
         cart_button = WebDriverWait(self.driver, 10).until(

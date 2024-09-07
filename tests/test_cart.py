@@ -4,6 +4,7 @@ from tests.PageObject.cart_page import CartPage
 from tests.PageObject.main_page import MainPage
 from tests.PageObject.product_page import ProductPage
 
+
 class TestItemOrder(BaseTest):
 
     def test_catalog_tablets(self, driver, test_data):
@@ -20,6 +21,7 @@ class TestItemOrder(BaseTest):
         product = product_page.find_product_by_title(product_name).text
         if not product:
             pytest.fail(f"Product '{product_name}' not found in category '{subsubcategory}'!")
+
 
     def test_add_and_clean_tablet_to_cart(self, driver, test_data):
         category = test_data["category"]
@@ -45,5 +47,3 @@ class TestItemOrder(BaseTest):
         main_page.click_cart_button()
         pytest.assume(cart_page.empty_cart(), "Cart is not empty after clearing!")
         cart_page.back_to_main()
-
-

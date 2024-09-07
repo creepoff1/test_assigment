@@ -1,5 +1,4 @@
 import pytest
-
 from BaseClass import BaseTest
 from tests.PageObject.contacts_page import ContactsPage
 from tests.PageObject.main_page import MainPage

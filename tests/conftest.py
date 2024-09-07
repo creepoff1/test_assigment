@@ -8,6 +8,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
+
 @pytest.fixture(scope='session')
 def driver():
     chrome_options = Options()
@@ -21,6 +22,7 @@ def driver():
     yield driver
     driver.quit()
 
+
 @pytest.fixture(scope='session')
 def test_data():
     return {
@@ -32,6 +34,7 @@ def test_data():
         "subsubcategory": "Digma",
         "product_name": "Планшет Digma iDx10 8Gb"
     }
+
 
 @pytest.fixture(autouse=True)
 def close_modal_if_present(driver):

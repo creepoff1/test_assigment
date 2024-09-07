@@ -3,7 +3,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
 class MainPage:
+
     def __init__(self, driver):
         self.driver = driver
 
@@ -96,10 +98,12 @@ class MainPage:
                 link.click()
                 break
 
+
     def select_and_click_subsubcategory(self, category_name, subcategory_name, subsubcategory_name):
         self.select_category(category_name)
         self.select_sub_category(subcategory_name)
         self.click_sub_subcategory(subsubcategory_name)
+
 
     def click_cart_button(self):
         cart_button = WebDriverWait(self.driver, 10).until(
